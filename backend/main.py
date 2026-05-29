@@ -1,6 +1,5 @@
 from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.middleware.gzip import GZIPMiddleware
 from contextlib import asynccontextmanager
 import logging
 import os
@@ -55,8 +54,6 @@ app.add_middleware(
 )
 
 # Compression
-app.add_middleware(GZIPMiddleware, minimum_size=1000)
-
 
 # Health Check
 @app.get("/health")
